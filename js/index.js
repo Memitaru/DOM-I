@@ -135,6 +135,11 @@ document.querySelector('footer p').textContent = siteContent['footer']['copyrigh
 //   navBar[i].style.color = "green";
 // }
 
+//stretch
+
+let heading = document.querySelector('h1');
+heading.addEventListener('click', (event) => {event.target.textContent = 'This New Header'})
+
 
 
 
