@@ -38,18 +38,57 @@ const siteContent = {
 };
 
 // Example: Update the img src for the logo
+
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
 
 // Set up nav bar
 
-let navBar = document.querySelectorAll('a');
-navBar[0].textContent = siteContent['nav']['nav-item-1'];
-navBar[1].textContent = siteContent['nav']['nav-item-2'];
-navBar[2].textContent = siteContent['nav']['nav-item-3'];
-navBar[3].textContent = siteContent['nav']['nav-item-4'];
-navBar[4].textContent = siteContent['nav']['nav-item-5'];
-navBar[5].textContent = siteContent['nav']['nav-item-6'];
+let nav = document.querySelectorAll('nav');
+
+// navBar[0].textContent = siteContent['nav']['nav-item-1'];
+// navBar[1].textContent = siteContent['nav']['nav-item-2'];
+// navBar[2].textContent = siteContent['nav']['nav-item-3'];
+// navBar[3].textContent = siteContent['nav']['nav-item-4'];
+// navBar[4].textContent = siteContent['nav']['nav-item-5'];
+// navBar[5].textContent = siteContent['nav']['nav-item-6'];
+
+let navA = document.querySelectorAll("a");
+navA.forEach((index, i) => navA[i].textContent = siteContent["nav"][`${
+  Object.keys(siteContent["nav"])[i]
+}`]);
+
+// Add items to nav bar
+
+// let homeLink = document.createElement('a');
+// let home = document.createTextNode('Home');
+// homeLink.appendChild(home);
+// navBar[0].prepend(homeLink);
+
+// const frontNav = document.createElement('a');
+// frontNav.href = '#';
+// frontNav.textContent = 'Ideas';
+// frontNav.style.color = 'green';
+
+// nav.prepend(frontNav);
+
+// let newNav = document.createElement('a');
+// newNav.href = '#';
+// newNav.textContent = 'Home';
+// newNav.style.color = 'green';
+
+// console.log(newNav);
+
+// nav.prepend(newNav);
+
+navLinks = document.getElementsByTagName('nav')[0];
+let createNewLink = (name) => {
+  let newLink = document.createElement('a');
+  newLink.innerHTML = name;
+  return newLink;
+}
+navLinks.prepend(createNewLink('Home'));
+navLinks.append(createNewLink('Extra'));
 
 // CTA
 
@@ -89,5 +128,15 @@ contact[2].textContent = siteContent['contact']['email'];
 // Footer
 
 document.querySelector('footer p').textContent = siteContent['footer']['copyright'];
+
+//Nav bar color change
+
+// for (i=0; 0<navBar.length; i++){
+//   navBar[i].style.color = "green";
+// }
+
+
+
+
 
 
